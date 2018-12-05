@@ -1,0 +1,9 @@
+docker run -it --entrypoint /bin/bash -p 8888:8888 -v /home/cdelabs/workspace/spring-cloud-configuration/onelabs-interview-service/cloud/application.yml:/config/application.yml hyness/spring-cloud-config-server 
+
+java -Djava.security.egd=file:/dev/./urandom -jar /opt/spring-cloud-config-server/target/spring-cloud-config-server.jar --server.port=8888 --spring.config.name=application
+
+
+docker run -it -entrypoint /bin/bash --rm  -p 8085:8888 -v /home/cdelabs/workspace/spring-cloud-configuration/onelabs-interview-service/cloud/application.yml:/config/application.yml -e SPRING_PROFILES_ACTIVE=native hyness/spring-cloud-config-server
+
+local config server local git url:
+spring.cloud.config.server.git.uri=file://${user.home}/workspace/spring-cloud-configuration
