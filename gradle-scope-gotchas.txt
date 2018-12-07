@@ -1,0 +1,21 @@
+// note how the value of complex set in #1 (config phase) 
+// is not visible in #2 (execution phase)
+version = "1.2"
+
+ext.mk = "some val"
+ext.complex = "$project.version"
+
+println "init complex is $project.version"
+
+
+task first() {
+    complex = "2.0"
+    println "in config mk.a is $mk"
+    println "in config complex is $complex"
+
+    doLast {
+        complex = "3.0"
+        println "in execution mk.a is $mk"
+        println "in execution complex is $complex"
+    }
+}
