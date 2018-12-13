@@ -1,6 +1,9 @@
 
 #raw call to get access token
 
+basic call (from spring doc https://docs.spring.io/spring-security-oauth2-boot/docs/current-SNAPSHOT/reference/htmlsingle/#oauth2-boot-authorization-server-minimal)
+curl userService:userServiceSecret@enablement-research-auth-server.cfapps.io/oauth/token -dgrant_type=client_credentials -dscope=all 
+
 curl --request POST --user userService:userServiceSecret --url https://enablement-research-auth-server.cfapps.io/oauth/token --header 'Content-Type: application/x-www-form-urlencoded' --data "grant_type=password&username=pmuser1&password=pmpass1&client_id=userService"
 note:
 --user values are in plain text but when the curl call is execute with verbose mode -v then it get encoded as below
