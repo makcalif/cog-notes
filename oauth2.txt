@@ -1,0 +1,14 @@
+
+#raw call to get access token
+
+curl --request POST --user userService:userServiceSecret --url https://enablement-research-auth-server.cfapps.io/oauth/token --header 'Content-Type: application/x-www-form-urlencoded' --data "grant_type=password&username=pmuser1&password=pmpass1&client_id=userService"
+note:
+--user values are in plain text but when the curl call is execute with verbose mode -v then it get encoded as below
+    * Server auth using Basic with user 'userService'
+    > POST /oauth/token HTTP/1.1
+    > Host: enablement-research-auth-server.cfapps.io
+    > Authorization: Basic dXNlclNlcnZpY2U6dXNlclNlcnZpY2VTZWNyZXQ=
+    > User-Agent: curl/7.58.0
+    > Accept: */*
+    > Content-Type: application/x-www-form-urlencoded
+    > Content-Length: 75
