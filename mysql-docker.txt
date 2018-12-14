@@ -1,0 +1,5 @@
+docker run -p 44444:3306 --name=mysql1 -e MYSQL_ROOT_HOST=% -e MYSQL_ROOT_PASSWORD=<password> -d mysql/mysql-server
+
+mysql -h 172.17.0.1 --port=44444 -uroot -p<password>
+
+docker exec -it mysql1 /bin/bash
