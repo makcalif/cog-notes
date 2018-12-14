@@ -3,3 +3,15 @@ docker run -p 44444:3306 --name=mysql1 -e MYSQL_ROOT_HOST=% -e MYSQL_ROOT_PASSWO
 mysql -h 172.17.0.1 --port=44444 -uroot -p<password>
 
 docker exec -it mysql1 /bin/bash
+--------------------------------------------------------
+cf app my-sql-docker --guid
+42e912e5-892e-44a2-9331-ae883761752f guid for mysql docker
+
+cf curl /v2/info
+"app_ssh_endpoint": "ssh.run.pivotal.io:2222"
+"app_ssh_host_key_fingerprint": "e7:13:4e:32:ee:39:62:df:54:41:d7:f7:8b:b2:a7:6b"
+
+cf ssh-code
+Njr86sIm2Q
+
+ssh -p 2222 cf:42e912e5-892e-44a2-9331-ae883761752f/0@ssh.run.pivotal.io
