@@ -1,0 +1,6 @@
+
+to access config server props via http url:
+
+https://<config-server-url>/<app-name>/cloud
+e.g.
+https://final-pod-config-server.cfapps.io/enablement-research-sample-service/cloud
