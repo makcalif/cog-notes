@@ -1,0 +1,11 @@
+snap alias microk8s.kubectl kubectl
+snap alias microk8s.docker docker
+
+#set default jdk if you have 2
+sudo update-java-alternatives --set /usr/lib/jvm/java-1.8.0-openjdk-amd64
+OR
+sudo update-alternatives --config java
+
+kubectl run nginx --image nginx
+kubectl get nodes -o wide
+kubectl expose deploy spring-boot --port 8088 --target-port 8088 --type ClusterIP 
