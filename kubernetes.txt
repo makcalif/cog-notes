@@ -7,5 +7,10 @@ OR
 sudo update-alternatives --config java
 
 kubectl run nginx --image nginx
+ similarly:
+ kubectl  run spring-boot2 --image spring-boot:1.0 --generator=run-pod/v1
+
 kubectl get nodes -o wide
+
 kubectl expose deploy spring-boot --port 8088 --target-port 8088 --type ClusterIP 
+
