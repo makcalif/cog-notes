@@ -12,5 +12,25 @@ kubectl run nginx --image nginx
 
 kubectl get nodes -o wide
 
-kubectl expose deploy spring-boot --port 8088 --target-port 8088 --type ClusterIP 
+kubectl expose deploy spring-boot --port 8088 --target-port 8088 --type ClusterIP  (read more abt this how app is load balanced on port 8088)
 
+kubectl exec -it spring-boot-5f7c478d88-fv2hg /bin/sh
+	# afer shell you can do 
+	hostname
+	ip addr
+
+#declarative
+
+kubectl get service spring-boot -o yaml --export > service-spring-boot.yaml
+kubectl get deployment spring-boot -o yaml --export > service-spring-boot.yaml
+OR
+kubectl get service spring-boot -o json --export > service-spring-boot.json
+
+#delete service deployment pods with
+kubectl delete service 
+kubectl delete deployment 
+etc
+
+#create services with yaml
+
+kubectl apply -f filename.yaml
