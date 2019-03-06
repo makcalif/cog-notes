@@ -34,3 +34,18 @@ etc
 #create services with yaml
 
 kubectl apply -f filename.yaml
+
+#edit
+kubectl edit deployment spring-boot
+
+# get dashboard IP
+first enable dashboard:
+microk8s enable dns dashboard
+kubectl get all --all-namespaces
+
+curl to get spring boot hello:
+curl http://10.152.183.148:8088/
+
+#logs of running jar
+first list pods: kubectl get pods
+kubectl logs spring-boot-5f7c478d88-fv2hg -f
