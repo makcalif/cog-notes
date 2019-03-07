@@ -1,0 +1,15 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: spring-boot-via-deployment-1-svc
+#spec:
+#  selector:
+#    app: spring-boot-via-deployment-1
+spec:
+  ports:
+  - protocol: TCP
+    port: 8088
+    targetPort: 8088	
+  type: ClusterIP
+  selector:
+    app: spring-boot-via-deployment-1
