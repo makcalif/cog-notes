@@ -49,3 +49,6 @@ curl http://10.152.183.148:8088/
 #logs of running jar
 first list pods: kubectl get pods
 kubectl logs spring-boot-5f7c478d88-fv2hg -f
+
+# to get json 
+use -o json instead of -o wide or use json
