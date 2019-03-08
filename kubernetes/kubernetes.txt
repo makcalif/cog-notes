@@ -52,3 +52,6 @@ kubectl logs spring-boot-5f7c478d88-fv2hg -f
 
 # to get json 
 use -o json instead of -o wide or use json
+
+# simple debugging docker
+https://github.com/mhausenblas/simpleservice
