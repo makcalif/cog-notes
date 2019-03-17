@@ -1,0 +1,27 @@
+  162  kubectl get service
+
+
+  206  netstat -anp | grep 443
+  213  kubectl describe service/spring-boot
+
+  214  kubectl describe service/spring-boot-via-deployment-1
+  218  kubectl  get pods --show-label
+  219  kubectl  get pods --show-labels
+  220  kubectl  get sv --show-labels
+  221  kubectl  get svc --show-labels
+  222  kubectl label spring-boot-via-deployment-1 app=spring-boot-via-deployment
+  223  kubectl label svc spring-boot-via-deployment-1 app=spring-boot-via-deployment
+  224  kubectl  get svc --show-labels
+  225  kubectl  get pods --show-labels
+  226  kubectl label svc --overwrite spring-boot-via-deployment-1 app=spring-boot-via-deployment-1 
+  227  kubectl  get svc --show-labels
+  228  kubectl  get pods --show-labels
+  229  kubectl  get svc -o wide
+  233  kubectl  get svc -o wide
+  234  kubectl get deployments
+  235  kubectl get deployments -o wide
+  236  kubectl  get svc -o wide
+  242  kubectl get svc
+  243  kubectl delete spring-boot-via-deployment-1
+  244  kubectl delete svc spring-boot-via-deployment-1
+  246  kubectl get svc -o wide

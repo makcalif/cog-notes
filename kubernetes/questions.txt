@@ -2,5 +2,6 @@ UTS namespace
 System V IPC
 POSIX message queues
 what are linux namespaces and cgroup?
+kubernetes: what is a REST object?
 
 

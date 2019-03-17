@@ -55,3 +55,6 @@ use -o json instead of -o wide or use json
 
 # simple debugging docker
 https://github.com/mhausenblas/simpleservice
+
+#check labels of pods
+kubectl get pods --show-labels
