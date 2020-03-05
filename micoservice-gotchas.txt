@@ -1,0 +1,112 @@
+
+Exposure to Kafka Messaging platform & Kafka Streams API.
+
+
+caching on microservcies
+cloud watch practical examples
+	Event source (e.g. api gateway, auto scaling, transcribe job status change COMPLETED/FAILED, Step functions), target, 
+		S3 multipart upload complete triggers a step function
+	
+	transcribe logs trigger an event . how?
+	file upload to s3 triggers 
+	Fixed interval events to warm lambda , can use cron also
+	
+	
+
+rest api design tools
+examples for api fixes like eventual consistency
+	use of front end microservce to aggregate calls
+	design from the perspective of users (not as engineers)
+	overfetch vs underfetch
+	as you need to display more details on the UI, you might end up creating new rest end points that slows down UI development
+	GraphQL has no caching (downside) also error handling is hard
+	
+12 factor : cheat sheet
+	Backing Services: auth server, databases, Queues are backing services
+		any backing service change should be done by config only and not code change
+	Gradle for dep mgmt
+	Config server  Kubernetes???
+	separation b/w build , release (build is combined with env specific config and made ready to execute), 
+		run (CD part of CI/ CD)
+		
+	Process: stateless processes that don't rely on system files but intead use DB
+		avoid sticky sessions, intead use MemCached or Redis for storing session
+	Port binding: instead of relying on app server port like jboss the standalone 
+		service has it's port in the configs
+	Concurrency: don't use threads but horizontal scaling
+	disposable containers - related to processes that should be start and stop in minimal time
+	dev/prod parity
+	
+ally microservce problems:
+	one page calling many microservices
+	eventual consistency examples
+	transcations example
+	added rabbit mq for async
+	based off of a single db
+	read only replica
+	
+	multiple services sharing database
+		reposession api was calling inventory db to update inventory
+		along with updating repossession tables
+		fixed by using events based: the inventory api started
+					listening to the events from the reposession api
+					
+	list:
+	    start lease was more complex
+			broken down to : open end lease
+							 closed end lease
+							 business lease (this was getting modified very frequently)
+		payments (monthly)
+		default by 4 months
+		repossession
+		police report
+		inventory
+		inspection
+		end of day (was initially part of start lease but it used
+				to take lot of CPU/DB resources)
+				refactored to run on a powerful vm
+		
+		
+		one api used to call several apis to build a json response
+				it was "lease" details 
+					used to call payments api, inventory api (for returned cars), inspection api
+					we made payments, inventory  and inspection api to emit events
+				
+		missing circuit breaker pattern in some places
+		----------------------------------------------------------
+				
+		many services were not publishing events of interest .. we added them
+			what event system did we use ? kafka?
+		
+		
+	database update issues fixed by using hashcode : which module?
+				some data file from financial company
+	
+	added api proxy to sit on top of catalog, payment, inventory, orders etc 
+		for the front end
+	added health checks
+	failure queues (receive events from Kinesis) and those failure events
+	can be replayed easily without going to kinesis
+	Big microservce problem - consistency : in api definition and event def
+	missing circuit breaker pattern
+	many services depending on one single service
+	search being slow as calling many backends
+	versioning?
+	not api was a resource
+	api definition in its own repo with linter enforcing lower case
+	apibuilder tool detects breaking api at design phase
+	
+	
+	
+	
+	
+jpa pagination
+protocal buffers
+
+design hashMap
+
+
+domain driven design
+
+check download job from mongo proxy lambda after prod
+
